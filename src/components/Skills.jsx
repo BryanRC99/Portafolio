@@ -1,43 +1,68 @@
-import { FaPython, FaReact, FaDocker, FaGitAlt, FaLinux, FaAws } from "react-icons/fa";
-import { SiDjango, SiPostgresql, SiPhp } from "react-icons/si";
 import { motion } from "framer-motion";
 
-const skills = [
-  { name: "Python", icon: <FaPython size={32} /> },
-  { name: "Django", icon: <SiDjango size={32} /> },
-  { name: "React", icon: <FaReact size={32} /> },
-  { name: "PHP", icon: <SiPhp size={32} /> },
-  { name: "PostgreSQL", icon: <SiPostgresql size={32} /> },
-  { name: "AWS", icon: <FaAws size={32} /> },
-  { name: "Docker", icon: <FaDocker size={32} /> },
-  { name: "Linux", icon: <FaLinux size={32} /> },
-  { name: "Git", icon: <FaGitAlt size={32} /> },
+const categories = [
+  {
+    label: "Lenguajes & Frameworks",
+    items: ["Python", "JavaScript", "PHP", "Django", "React", "APIs REST", "CSS3"],
+  },
+  {
+    label: "Bases de Datos",
+    items: ["PostgreSQL", "MySQL", "SQL Server", "Oracle (básico)"],
+  },
+  {
+    label: "Cloud",
+    items: ["AWS", "Microsoft Azure"],
+  },
+  {
+    label: "Infraestructura & Redes",
+    items: ["Zabbix", "FortiGate", "Redes TCP/IP", "SNMPv3", "Firewalls, Routers, Switches"],
+  },
+  {
+    label: "Seguridad Informática",
+    items: ["Nmap", "Wireshark", "Auditoría de redes", "Escaneo de vulnerabilidades"],
+  },
+  {
+    label: "Sistemas & Herramientas",
+    items: ["Windows", "Kali Linux", "Ubuntu", "Debian", "Docker", "Git / GitHub", "VMware", "Postman"],
+  },
 ];
 
 function Skills() {
   return (
-    <section id="skills" className="max-w-6xl mx-auto px-6 py-10">
-      <h2 className="text-3xl font-bold text-white mb-6">
-        Tecnologías
-      </h2>
+    <section id="skills" className="max-w-5xl mx-auto px-6 md:px-8 py-20 md:py-28">
+      <p className="cmd-eyebrow mb-4">ls skills/</p>
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={skill.name}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.03 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -4, scale: 1.02 }}
-            className="bg-slate-800/40 backdrop-blur-md border border-slate-700/50 rounded-xl p-4 text-center text-white flex flex-col items-center justify-center gap-2"
-          >
-            <div className="text-cyan-400">
-              {skill.icon}
-            </div>
-            <p className="text-sm font-medium">{skill.name}</p>
-          </motion.div>
-        ))}
+      <div className="hairline-t pt-8 grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
+        <h2 className="font-display text-3xl md:text-4xl text-ink">
+          Tecnologías
+        </h2>
+
+        <div className="space-y-8">
+          {categories.map((cat, index) => (
+            <motion.div
+              key={cat.label}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05, duration: 0.4 }}
+              className="grid sm:grid-cols-[9rem_1fr] gap-x-6 gap-y-2"
+            >
+              <span className="font-mono text-xs uppercase tracking-wider text-ink-faint pt-1">
+                {cat.label}
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {cat.items.map((item) => (
+                  <span
+                    key={item}
+                    className="text-sm text-ink-soft border border-hairline rounded-full px-3 py-1 hover:border-signal hover:text-signal transition-colors"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

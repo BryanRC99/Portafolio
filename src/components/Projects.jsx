@@ -4,74 +4,75 @@ const projects = [
   {
     title: "Sistema de Facturación",
     description:
-      "Sistema web desarrollado para la gestión de clientes, proveedores, usuarios, facturas y reportes. Incluye autenticación de usuarios y arquitectura backend con Django y PostgreSQL.",
-    technologies: ["Django", "PostgreSQL", "AWS", "Git", "Tailwind"],
+      "Plataforma web para gestión de clientes, proveedores, usuarios, facturas y reportes. Autenticación de doble factor (2FA) y despliegue sobre servidores Linux Ubuntu en AWS.",
+    technologies: ["Django", "PostgreSQL", "AWS", "Tailwind", "Git"],
     github: "https://github.com/BryanRC99/Sistema_Facturacion",
   },
   {
     title: "Sistema Hospitalario",
     description:
-      "Proyecto académico en desarrollo utilizando React y Django para la administración de pacientes, médicos, citas y expedientes clínicos mediante APIs REST.",
+      "Proyecto académico full-stack para administración de pacientes, médicos, citas y expedientes clínicos, con arquitectura desacoplada integrada mediante APIs REST.",
     technologies: ["React", "Django", "PostgreSQL"],
-    github: "https://github.com/BryanRC99/Sistema_Hospitalario", // Listo para cuando lo subas
+    github: "https://github.com/BryanRC99/Sistema_Hospitalario",
+  },
+  {
+    title: "Laboratorio de Auditoría y Hardening de Redes",
+    description:
+      "Investigación con análisis de topologías con doble NAT, escaneo de vulnerabilidades en servicios de administración local (OpenSSH, HTTP, UPnP) y auditoría de interfaces inalámbricas en Modo Monitor.",
+    technologies: ["Kali Linux", "Nmap", "Wireshark"],
+    github: null,
   },
 ];
 
 function Projects() {
   return (
-    <section id="projects" className="max-w-6xl mx-auto px-6 py-10">
-      <h2 className="text-3xl font-bold text-white mb-6">
-        Proyectos
-      </h2>
+    <section id="projects" className="max-w-5xl mx-auto px-6 md:px-8 py-20 md:py-28">
+      <p className="cmd-eyebrow mb-4">ls -la projects/</p>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{ y: -5 }}
-            className="bg-slate-800/40 backdrop-blur-md border border-slate-700/60 rounded-2xl overflow-hidden shadow-lg flex flex-col justify-between"
-          >
-            <div>
-              <div className="h-32 bg-gradient-to-br from-cyan-500/10 to-blue-600/10 border-b border-slate-700/40" />
-              <div className="p-5">
-                <h3 className="text-white text-xl font-bold">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 text-sm mt-2 leading-relaxed">
-                  {project.description}
-                </p>
+      <div className="hairline-t pt-8 grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
+        <h2 className="font-display text-3xl md:text-4xl text-ink">
+          Proyectos
+        </h2>
+
+        <div className="space-y-10">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08, duration: 0.45 }}
+              className={index === 0 ? "" : "hairline-t pt-8"}
+            >
+              <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
+                <h3 className="text-xl font-medium text-ink">{project.title}</h3>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-xs text-ink-soft border-b border-hairline hover:text-signal hover:border-signal transition-colors shrink-0"
+                  >
+                    código fuente →
+                  </a>
+                )}
               </div>
-            </div>
-
-            <div className="px-5 pb-5">
-              <div className="flex flex-wrap gap-1.5 mt-2">
+              <p className="text-ink-soft leading-relaxed mb-4 max-w-2xl">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-2.5 py-0.5 rounded-md bg-cyan-500/5 border border-cyan-500/20 text-cyan-300 text-xs font-medium"
+                    className="font-mono text-xs text-ink-faint border border-hairline rounded-full px-2.5 py-1"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
-
-              <div className="flex mt-5">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 bg-cyan-500 text-white text-sm font-medium rounded-lg hover:bg-cyan-600 transition-colors shadow-md shadow-cyan-500/10"
-                >
-                  Código Fuente
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

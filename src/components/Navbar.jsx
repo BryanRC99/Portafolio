@@ -1,37 +1,54 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
+const links = [
+  { href: "#about", label: "Sobre mí" },
+  { href: "#skills", label: "Stack" },
+  { href: "#experience", label: "Experiencia" },
+  { href: "#projects", label: "Proyectos" },
+  { href: "#certifications", label: "Certificaciones" },
+];
+
 function Navbar() {
   return (
-    <nav className="fixed top-0 w-full backdrop-blur-md bg-slate-900/80 border-b border-slate-800 z-50">
-      <div className="max-w-6xl mx-auto px-6 py-3.5 flex justify-between items-center">
-        <h1 className="text-white font-bold text-xl tracking-tight">
-          Portafolio
-        </h1>
+    <nav className="fixed top-0 w-full z-50 bg-paper/90 backdrop-blur-sm hairline-b">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
+        <a
+          href="#"
+          className="font-mono text-sm text-ink tracking-tight"
+        >
+          ~/bryan<span className="text-signal">.pineda</span>
+        </a>
 
-        <div className="flex items-center gap-5 text-sm font-medium text-gray-300">
-          <a href="#about" className="hover:text-cyan-400 transition-colors">Sobre mí</a>
-          <a href="#skills" className="hover:text-cyan-400 transition-colors">Tecnologías</a>
-          <a href="#experience" className="hover:text-cyan-400 transition-colors">Experiencia</a>
-          <a href="#projects" className="hover:text-cyan-400 transition-colors">Proyectos</a>
-          <a href="#certifications" className="hover:text-cyan-400 transition-colors">Certificaciones</a>
+        <div className="hidden md:flex items-center gap-7 font-mono text-xs uppercase tracking-wider text-ink-soft">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="hover:text-signal transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
 
-          <div className="h-4 w-[1px] bg-slate-700 mx-1" />
-
+        <div className="flex items-center gap-4 text-base text-ink-soft">
           <a
             href="https://linkedin.com/in/bryan-pineda-199610348"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-cyan-400 transition-colors"
+            aria-label="LinkedIn"
+            className="hover:text-signal transition-colors"
           >
-            <FaLinkedin size={20} />
+            <FaLinkedin size={17} />
           </a>
           <a
             href="https://github.com/BryanRC99"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-cyan-400 transition-colors"
+            aria-label="GitHub"
+            className="hover:text-signal transition-colors"
           >
-            <FaGithub size={20} />
+            <FaGithub size={17} />
           </a>
         </div>
       </div>

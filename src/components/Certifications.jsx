@@ -2,6 +2,31 @@ import { motion } from "framer-motion";
 
 const certifications = [
   {
+    title: "Fortinet Certified Associate in Cybersecurity (FCA)",
+    institution: "Fortinet",
+    year: "2026–2028",
+  },
+  {
+    title: "Fortinet Certified Associate: FortiGate 7.6 Operator",
+    institution: "Fortinet",
+    year: "2026–2030",
+  },
+  {
+    title: "Cloud Security Fundamentals",
+    institution: "Palo Alto Networks",
+    year: "2026",
+  },
+  {
+    title: "AWS: Job Roles in the Cloud",
+    institution: "Amazon Web Services (AWS)",
+    year: "2026",
+  },
+  {
+    title: "Desarrollo de Aplicaciones Móviles con Flutter",
+    institution: "ISTVN",
+    year: "2025",
+  },
+  {
     title: "Diplomado en Liderazgo y 114 Habilidades Gerenciales con IA",
     institution: "Universidad Santander",
     year: "2024",
@@ -11,43 +36,40 @@ const certifications = [
 
 function Certifications() {
   return (
-    <section id="certifications" className="max-w-6xl mx-auto px-6 py-10">
-      <h2 className="text-3xl font-bold text-white mb-6">
-        Certificaciones
-      </h2>
+    <section id="certifications" className="max-w-5xl mx-auto px-6 md:px-8 py-20 md:py-28">
+      <p className="cmd-eyebrow mb-4">cat certifications.log</p>
 
-      <div className="grid md:grid-cols-2 gap-4 max-w-4xl">
-        {certifications.map((cert, index) => (
-          <motion.div
-            key={cert.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
-            className="bg-slate-800/40 backdrop-blur-md border border-slate-700/50 rounded-xl p-5 flex flex-col justify-between"
-          >
-            <div>
-              <span className="text-cyan-400 text-xs font-bold">{cert.year}</span>
-              <h3 className="text-white text-lg font-semibold mt-1 leading-snug">
-                {cert.title}
-              </h3>
-              <p className="text-gray-400 text-sm mt-1.5">{cert.institution}</p>
-              <p className="text-gray-500 text-xs mt-1">Credencial verificable en línea</p>
-            </div>
+      <div className="hairline-t pt-8 grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
+        <h2 className="font-display text-3xl md:text-4xl text-ink">
+          Certificaciones
+        </h2>
 
-            <div className="mt-4">
-              <a
-                href={cert.credential}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
-              >
-                Ver credencial →
-              </a>
-            </div>
-          </motion.div>
-        ))}
+        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6">
+          {certifications.map((cert, index) => (
+            <motion.div
+              key={cert.title}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05, duration: 0.4 }}
+              className="flex flex-col"
+            >
+              <span className="font-mono text-xs text-signal mb-1.5">{cert.year}</span>
+              <h3 className="text-ink font-medium leading-snug">{cert.title}</h3>
+              <p className="text-ink-soft text-sm mt-1">{cert.institution}</p>
+              {cert.credential && (
+                <a
+                  href={cert.credential}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-xs text-ink-faint border-b border-hairline hover:text-signal hover:border-signal transition-colors w-fit mt-2"
+                >
+                  ver credencial →
+                </a>
+              )}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
