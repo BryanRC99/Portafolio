@@ -4,7 +4,7 @@ import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
 function Footer() {
   return (
     <footer id="contact" className="hairline-t">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 py-20 md:py-28">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 section-pad">
         <p className="cmd-eyebrow mb-4">whoami --contact</p>
 
         <div className="hairline-t pt-8 grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
