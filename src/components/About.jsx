@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 function About() {
   return (
-    <section id="about" className="max-w-5xl mx-auto px-6 md:px-8 py-12 md:py-16">
+    <section id="about" className="max-w-5xl mx-auto px-6 md:px-8 section-pad">
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
