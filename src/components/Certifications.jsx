@@ -36,7 +36,7 @@ const certifications = [
 
 function Certifications() {
   return (
-    <section id="certifications" className="max-w-5xl mx-auto px-6 md:px-8 py-12 md:py-16">
+    <section id="certifications" className="max-w-5xl mx-auto px-6 md:px-8 section-pad">
       <p className="cmd-eyebrow mb-4">cat certifications.log</p>
 
       <div className="hairline-t pt-8 grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
