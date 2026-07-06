@@ -53,7 +53,7 @@ function Footer() {
                 <FaGithub /> GitHub
               </a>
               <a
-                href="/CV_Bryan_Pineda.pdf"
+                href="/CV_BRYAN_PINEDA.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 border-b border-ink pb-0.5 hover:text-signal hover:border-signal transition-colors"
