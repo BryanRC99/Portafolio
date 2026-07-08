@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-
+mport { motion } from "framer-motion";
+ 
 const projects = [
   {
     title: "Sistema de Facturación",
@@ -7,13 +7,23 @@ const projects = [
       "Plataforma web para gestión de clientes, proveedores, usuarios, facturas y reportes. Autenticación de doble factor (2FA) y despliegue sobre servidores Linux Ubuntu en AWS.",
     technologies: ["Django", "PostgreSQL", "AWS", "Tailwind", "Git"],
     github: "https://github.com/BryanRC99/Sistema_Facturacion",
+    status: null,
   },
   {
     title: "Sistema Hospitalario",
     description:
-      "Proyecto académico full-stack para administración de pacientes, médicos, citas y expedientes clínicos, con arquitectura desacoplada integrada mediante APIs REST.",
-    technologies: ["React", "Django", "PostgreSQL"],
+      "Proyecto full-stack para administración de pacientes, empleados, citas, triaje, consultas clínicas y seguros, con arquitectura desacoplada integrada mediante APIs REST. Backend y frontend en despliegue sobre una VM en Microsoft Azure.",
+    technologies: ["Next.js", "TypeScript", "Django REST Framework", "PostgreSQL", "Tailwind", "Azure"],
     github: "https://github.com/BryanRC99/Sistema_Hospitalario",
+    status: "En desarrollo",
+  },
+  {
+    title: "JellyJam",
+    description:
+      "Plataforma de escucha colaborativa en tiempo real para servidores Jellyfin, inspirada en Spotify Jam. Permite crear salas sincronizadas para reproducir, encolar y disfrutar música en conjunto sobre una biblioteca autoalojada.",
+    technologies: ["NestJS", "React", "Jellyfin API", "WebSockets", "TypeScript"],
+    github: "https://github.com/BryanRC99/JellyJam",
+    status: "En desarrollo",
   },
   {
     title: "Laboratorio de Auditoría y Hardening de Redes",
@@ -21,19 +31,20 @@ const projects = [
       "Investigación con análisis de topologías con doble NAT, escaneo de vulnerabilidades en servicios de administración local (OpenSSH, HTTP, UPnP) y auditoría de interfaces inalámbricas en Modo Monitor.",
     technologies: ["Kali Linux", "Nmap", "Wireshark"],
     github: null,
+    status: null,
   },
 ];
-
+ 
 function Projects() {
   return (
     <section id="projects" className="max-w-5xl mx-auto px-6 md:px-8 section-pad">
       <p className="cmd-eyebrow mb-4">ls -la projects/</p>
-
+ 
       <div className="hairline-t pt-8 grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
         <h2 className="font-display text-3xl md:text-4xl text-ink">
           Proyectos
         </h2>
-
+ 
         <div className="space-y-10">
           {projects.map((project, index) => (
             <motion.div
@@ -45,7 +56,14 @@ function Projects() {
               className={index === 0 ? "" : "hairline-t pt-8"}
             >
               <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
-                <h3 className="text-xl font-medium text-ink">{project.title}</h3>
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <h3 className="text-xl font-medium text-ink">{project.title}</h3>
+                  {project.status && (
+                    <span className="font-mono text-[0.65rem] uppercase tracking-wider text-alert border border-alert/40 rounded-full px-2 py-0.5">
+                      {project.status}
+                    </span>
+                  )}
+                </div>
                 {project.github && (
                   <a
                     href={project.github}
@@ -77,5 +95,5 @@ function Projects() {
     </section>
   );
 }
-
+ 
 export default Projects;
