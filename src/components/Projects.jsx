@@ -12,8 +12,8 @@ const projects = [
   {
     title: "Sistema Hospitalario",
     description:
-      "Proyecto full-stack para administración de pacientes, empleados, citas, triaje, consultas clínicas y seguros, con arquitectura desacoplada integrada mediante APIs REST. Backend y frontend en despliegue sobre una VM en Microsoft Azure.",
-    technologies: ["Next.js", "TypeScript", "Django REST Framework", "PostgreSQL", "Tailwind", "Azure"],
+      "Proyecto full-stack para administración de pacientes, empleados, citas, triaje, consultas clínicas y seguros, con arquitectura desacoplada integrada mediante APIs REST.",
+    technologies: ["Next.js", "TypeScript", "Django REST Framework", "PostgreSQL", "Tailwind"],
     github: "https://github.com/BryanRC99/Sistema_Hospitalario",
     status: "En desarrollo",
   },
@@ -21,7 +21,7 @@ const projects = [
     title: "JellyJam",
     description:
       "Plataforma de escucha colaborativa en tiempo real para servidores Jellyfin, inspirada en Spotify Jam. Permite crear salas sincronizadas para reproducir, encolar y disfrutar música en conjunto sobre una biblioteca autoalojada.",
-    technologies: ["NestJS", "React", "Jellyfin API", "WebSockets", "TypeScript"],
+    technologies: ["NestJS", "React", "Jellyfin API", "WebSockets", "TypeScript", "Azure"],
     github: "https://github.com/BryanRC99/JellyJam",
     status: "En desarrollo",
   },
