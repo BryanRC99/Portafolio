@@ -2,26 +2,20 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Sonorid",
-    description:
-      "Modern local Android music player built with Jetpack Compose. Features Media3 playback, synced lyrics via LRCLIB, artist information from TheAudioDB, playlists, favorites, local caching with Room, and a custom Material 3 interface.",
-    technologies: [
-      "Kotlin",
-      "Jetpack Compose",
-      "Material 3",
-      "Media3",
-      "Room",
-      "Hilt",
-      "Retrofit",
-      "Coil",
-      "Palette",
-      "DataStore",
-      "LRCLIB API",
-      "TheAudioDB API",
-    ],
-    github: "https://github.com/BryanRC99/Sonorid",
-    apk: "https://github.com/BryanRC99/Sonorid/releases/tag/v1.0.0",
-    status: null,
+  title: "Sonorid",
+  description:
+    "Reproductor de música local para Android desarrollado con Jetpack Compose. Permite reproducir música almacenada en el dispositivo, administrar favoritos y listas de reproducción, mostrar letras sincronizadas en tiempo real mediante LRCLIB e información de artistas desde TheAudioDB, todo con persistencia local y una interfaz basada en Material 3.",
+  technologies: [
+    "Kotlin",
+    "Jetpack Compose",
+    "Media3",
+    "Room",
+    "Hilt",
+    "Retrofit",
+  ],
+  github: "https://github.com/BryanRC99/Sonorid",
+  apk: "https://github.com/BryanRC99/Sonorid/releases/latest",
+  status: null,
   },
   {
     title: "Sistema de Facturación",
